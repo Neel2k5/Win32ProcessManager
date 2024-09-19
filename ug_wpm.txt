@@ -9,6 +9,7 @@ help - [./wpm.exe help]
   Displays user guide and list of commands.
   (The ug_wpm.txt must be present in the same directory as the executable)
 
+
 lp - [./wpm.exe lp <limit>]
   Displays all the processes running at that instance on the machine with the following attributes:
     Process ID
@@ -19,5 +20,14 @@ lp - [./wpm.exe lp <limit>]
   The optional parameter limit takes a positive integer value and the command returns that number of processes as long as the number
   is less than the total number of processes running.
   If any negative integer is supplied then the command displays like it would, without any specified limit.
+
+
+psd - [./wpm.exe psd <process_ID>]
+  Displays the following information about a process specified by the process ID
+    Process ID
+    Origin Executable
+    Origin Executable Path
+    RAM Usage in KB
+  The command displays respective error and can only acess processes that are not protected or are acessable by wpm's permissions.
 ____________________________________________________________________________________________________________________________________________
 

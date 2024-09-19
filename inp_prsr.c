@@ -19,12 +19,12 @@ int main(int argc,char *argv[]){
     }
     feats_lp(-1);
   } 
-  else if(strcmpi(argv[1],"dp")==0){
+  else if(strcmpi(argv[1],"psd")==0){
     if(argc<3){
       fprintf(stderr,"\n%sERROR : TOO LITTLE ARGUMENTS FOR SPECIFIED COMMAND%s",RED_FG,RESET);
       return -1;
     }
-    //Describe process
+    feats_psd(atoi(argv[2]));
   }
   else if(strcmpi(argv[1],"help")==0){
     helper_ugdisplay();

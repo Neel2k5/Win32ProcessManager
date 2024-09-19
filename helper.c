@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "helper.h"
-
+#include <string.h>
 void helper_ugdisplay(void){
 FILE *ug;
 
@@ -13,4 +13,12 @@ FILE *ug;
   while((buffer=fgetc(ug))!=EOF){
     fprintf(stdout,"%c",buffer);
   } fclose(ug);
+}
+
+char* helper_fnstr(char *path){
+  char *ret;
+  ret  = strrchr(path, '\\');
+  ret++;
+  return ret;
+
 }

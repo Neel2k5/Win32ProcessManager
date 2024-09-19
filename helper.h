@@ -25,5 +25,5 @@
 #define RESET      "\x1b[0m"
 
 void helper_ugdisplay(void);
-
+char* helper_fnstr(char *path);
 #endif 
