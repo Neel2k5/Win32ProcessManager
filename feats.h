@@ -24,5 +24,9 @@ void feats_lp(int limit);
  * This may throw error if some protected process is encountered or the tool lacks permissions to acess the certain process.
  * */
 void feats_psd(unsigned int pID);
-
+/*kill
+ * This function takes a process ID as unsigned integer input and terminates it.
+ * The executable must have acess permissions of that specific process, or displays respective error.
+ * */
+void feats_kill(unsigned int pID);
 #endif

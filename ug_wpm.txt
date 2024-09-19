@@ -29,5 +29,12 @@ psd - [./wpm.exe psd <process_ID>]
     Origin Executable Path
     RAM Usage in KB
   The command displays respective error and can only acess processes that are not protected or are acessable by wpm's permissions.
+
+
+kill - [./wpm.exe kill <process_ID>]
+  Terminates the process specified by its process ID.
+  The command displays respective error and can only acess processes that are not protected or are acessable by wpm's permissions.
+
+
 ____________________________________________________________________________________________________________________________________________
 

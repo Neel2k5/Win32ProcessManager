@@ -54,7 +54,7 @@ void feats_psd(unsigned int pID){
      CloseHandle(ps_hd);
      return;
   }
-  fprintf(stdout,"\n\n%s%sPROCESS ID : %s %s%d%s",MAGENTA_BG,BLACK_FG,RESET,MAGENTA_FG,pID,RESET);
+  fprintf(stdout,"\n%s%sPROCESS ID : %s %s%d%s",CYAN_BG,BLACK_FG,RESET,CYAN_FG,pID,RESET);
   if(!GetModuleFileNameEx(ps_hd,NULL,path,PATH_LIM)){
     fprintf(stderr,"\n%sERROR : PROCESS ORIGIN FETCHING FAILED : CODE %s%lu",RED_FG,RESET,GetLastError());
   }
@@ -68,7 +68,28 @@ void feats_psd(unsigned int pID){
      fprintf(stderr,"\n%sERROR : PROCESS MEMORY INFO FETCHING FAILED : CODE %s%lu",RED_FG,RESET,GetLastError());
   }
   else{
-    fprintf(stdout,"\n%s%sRAM USAGE : %s %s%lf KB%s",CYAN_BG,BLACK_FG,RESET,CYAN_FG,((double)(mem_container.PeakPagefileUsage))/1000,RESET); 
+    fprintf(stdout,"\n%s%sRAM USAGE : %s %s%lf KB%s",RED_BG,BLACK_FG,RESET,RED_FG,((double)(mem_container.PeakPagefileUsage))/1000,RESET); 
   }
+CloseHandle(ps_hd);
+}
+
+void feats_kill(unsigned int pID){
+  HANDLE ps_hd;
+  ps_hd = OpenProcess(PROCESS_TERMINATE, FALSE, pID);
+  //printf("\nreaches1");//debugging
+  fprintf(stdout,"\n%s%sPROCESS ID : %s%s%u%s",BLACK_FG,CYAN_BG,RESET,CYAN_FG,pID,RESET);
+  //printf("\nreaches2");//debugging
+  if(ps_hd==NULL){
+    fprintf(stderr,"\n%sERROR : PROCESS FETCHING FAILED : CODE %s%lu",RED_FG,RESET,GetLastError());
+    CloseHandle(ps_hd);
+    return;
+  }
+  if(!TerminateProcess(ps_hd, 0)){
+    fprintf(stderr,"\n%sERROR : PROCESS TERMINATION FAILED : CODE %s%lu",RED_FG,RESET,GetLastError());
+    CloseHandle(ps_hd);
+    return;
+  }
+  fprintf(stdout,"\n%sSucessfully Terminated\n%s",GREEN_FG,RESET);
+  CloseHandle(ps_hd);
 
 }

@@ -4,7 +4,7 @@
 #include "helper.h"
 #include "feats.h"
 int main(int argc,char *argv[]){
-  fprintf(stdout,"\n%s%sARGS PASSED :%s %d",WHITE_BG,BLACK_FG,RESET,argc-1);
+  fprintf(stdout,"\n%s%sARGS PASSED :%s %d\n",WHITE_BG,BLACK_FG,RESET,argc-1);
   if(argc<2){
     fprintf(stderr,"\n%sERROR : TOO LITTLE ARGUMENTS%s",RED_FG,RESET);
     helper_ugdisplay();
@@ -25,6 +25,12 @@ int main(int argc,char *argv[]){
       return -1;
     }
     feats_psd(atoi(argv[2]));
+  }
+  else if(strcmpi(argv[1],"kill")==0){
+    if(argc<3){
+      fprintf(stderr,"\n%sERROR : TOO LITTLE ARGUMENTS FOR SPECIFIED COMMAND%s",RED_FG,RESET);
+      return -1;     } 
+    feats_kill(atoi(argv[2]));
   }
   else if(strcmpi(argv[1],"help")==0){
     helper_ugdisplay();
