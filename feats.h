@@ -10,7 +10,7 @@
  * Threads
  * Parent ID
  *
- * The argument limit can be set to a nonzero positive integer to fetch that many processes,
+ * @limit is to be taken from input signifying the number of process to be displayed. (-1 to display all)
  * or it can be set to a negative integer to list all processes.
  * */
 void feats_lp(int limit);
@@ -29,4 +29,12 @@ void feats_psd(unsigned int pID);
  * The executable must have acess permissions of that specific process, or displays respective error.
  * */
 void feats_kill(unsigned int pID);
+
+/*tree
+ * Displays the snapshotted processes running in the system and their respective accisable children in a tree like format
+ * @depth is to be initialised to 0 
+ * @limit is to be taken from input signifying the number of process to be displayed. (-1 to display all)
+ * */
+
+void feats_tree(unsigned int depth,int limit);
 #endif

@@ -35,6 +35,16 @@ int main(int argc,char *argv[]){
   else if(strcmpi(argv[1],"help")==0){
     helper_ugdisplay();
   }
+  else if(strcmpi(argv[1],"tree")==0){
+    if(argc>2){
+      feats_tree(0,atoi(argv[2]));
+      return 0;
+    }
+    else {
+    feats_tree(0,-1);
+    return 0;
+  }
+  }
   else{
     fprintf(stderr,"\n%sERROR : NO VALID COMMAND%s",RED_FG,RESET);
     helper_ugdisplay();
