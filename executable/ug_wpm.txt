@@ -1,0 +1,45 @@
+__________________________________________________________________USER GUIDE__________________________________________________________________
+
+Basic Command Syntax (PS format)
+[./wpm.exe <command> <arg1> <arg2> <arg3>...<argN>]
+
+COMMAND LIST__________________________________________________________________________________________________________________________________
+
+help - [./wpm.exe help]
+  Displays user guide and list of commands.
+  (The ug_wpm.txt must be present in the same directory as the executable)
+
+
+lp - [./wpm.exe lp <limit>]
+  Displays all the processes running at that instance on the machine with the following attributes:
+    Process ID
+    Base Priority
+    Name
+    Number of Threads
+    Parent Process ID
+  The optional parameter limit takes a positive integer value and the command returns that number of processes as long as the number
+  is less than the total number of processes running.
+  If any negative integer is supplied then the command displays like it would, without any specified limit.
+
+
+psd - [./wpm.exe psd <process_ID>]
+  Displays the following information about a process specified by the process ID
+    Process ID
+    Origin Executable
+    Origin Executable Path
+    RAM Usage in KB
+  The command displays respective error and can only acess processes that are not protected or are acessable by wpm's permissions.
+
+
+kill - [./wpm.exe kill <process_ID>]
+  Terminates the process specified by its process ID.
+  The command displays respective error and can only acess processes that are not protected or are acessable by wpm's permissions.
+
+tree - [./wpm.exe tree <limit>]
+  Displays all the processes running at that instance on the machine that are accisable in a parent child tree format.
+  
+  The optional parameter limit takes a positive integer value and the command returns that number of processes as long as the number
+  is less than the total number of processes running.
+  If any negative integer is supplied then the command displays like it would, without any specified limit.
+____________________________________________________________________________________________________________________________________________
+
